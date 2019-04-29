@@ -10,8 +10,13 @@ class KitapsController < ApplicationController
   # GET /kitaps/1
   # GET /kitaps/1.json
   def show
-        a = Sayac.first || Sayac.create(goruntuleme=0)
-        a.goruntuleme +=1
+        if(Sayac.count==0)
+            a = Sayac.new
+            a.goruntuleme = 0
+        else
+            a = Sayac.first
+            a.goruntuleme +=1
+        end
         a.save
         @sayac = a.goruntuleme
   end

@@ -7,21 +7,30 @@
 <span>arama/index sayfasında <b><%=@q%></b> isimli arama sonucu</span>
 
 <% if@kitaplar.count == 0 %>
-    Veri Bulunamadı !
+    <span style="color:red;">Veri Bulunamadı !</span>
+<% else %>
+    <span style="color:green;">Veri Bulundu.</span>
 <% end %>
 <br><br>
 
 <table>
     <thead>
         <tr>
+            <th>ID</th>
             <th>İsim</th>
+            <th>Link</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <% @kitaplar.each do |kitap| %>
-                <td><%=kitap.isim %></td>
-            <% end %>
-        </tr>
+        <% @kitaplar.each do |kitap| %>
+            <tr>
+                <td><%=kitap.id %></td>
+                <td><a href="/kitaplar/<%=kitap.id %>"><%=kitap.isim %></a></td>
+                <td><a href="/kitaplar/<%=kitap.id %>">/kitaplar/<%=kitap.id %></a></td>
+            </tr>
+        <% end %>
     </tbody>
 </table>
+
+<br>
+<a href="/">Ana Sayfa</a>
