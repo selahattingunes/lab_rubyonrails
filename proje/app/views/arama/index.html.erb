@@ -1,0 +1,27 @@
+<form mathod="get" action="/arama/index">
+    <label for="q">İsim : </label>
+    <input type="text" name="q" placeholder="Ara ...">
+</form>
+<br><br>
+
+<span>arama/index sayfasında <b><%=@q%></b> isimli arama sonucu</span>
+
+<% if@kitaplar.count == 0 %>
+    Veri Bulunamadı !
+<% end %>
+<br><br>
+
+<table>
+    <thead>
+        <tr>
+            <th>İsim</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <% @kitaplar.each do |kitap| %>
+                <td><%=kitap.isim %></td>
+            <% end %>
+        </tr>
+    </tbody>
+</table>

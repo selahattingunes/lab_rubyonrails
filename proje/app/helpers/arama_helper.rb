@@ -1,0 +1,2 @@
+module AramaHelper
+end
