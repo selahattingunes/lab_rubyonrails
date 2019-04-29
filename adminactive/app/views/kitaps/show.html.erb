@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Isim:</strong>
+  <%= @kitap.isim %>
+</p>
+
+<p>
+  <strong>Sayi:</strong>
+  <%= @kitap.sayi %>
+</p>
+
+<%= link_to 'Edit', edit_kitap_path(@kitap) %> |
+<%= link_to 'Back', kitaps_path %>

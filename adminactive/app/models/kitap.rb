@@ -1,0 +1,2 @@
+class Kitap < ApplicationRecord
+end
