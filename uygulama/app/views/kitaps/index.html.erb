@@ -28,9 +28,14 @@
                              <p>
                                  <%=kitap.user.email%>
                              </p>
-                             <%= link_to 'Görüntüle', kitap %>
-                             <%= link_to 'Güncelle', edit_kitap_path(kitap) %>
-                             <%= link_to 'Sil', kitap, method: :delete, data: { confirm: 'Are you sure?' } %>
+                             <% if user_signed_in? %>
+                                <%= link_to 'Görüntüle', kitap , {:class=>"btn btn-success"} %>   
+                                <%= link_to 'Güncelle', edit_kitap_path(kitap), {:class=>"btn btn-primary"} %>
+                                <%= link_to 'Sil', kitap, method: :delete, class:"btn btn-error" , data: { confirm: 'Are you sure?'}%>
+                            <% else %>
+                                <%= link_to 'Görüntüle', kitap , {:class=>"btn btn-success"} %>   
+                            <% end %>
+                             
                          </div>
                      </div>
                  </div>

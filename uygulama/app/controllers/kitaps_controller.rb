@@ -1,7 +1,9 @@
 class KitapsController < ApplicationController
-  before_action :kontrol, only: [:edit, :update, :destroy]
-  before_action :set_kitap, only: [:show, :edit, :update, :destroy, :kontrol]
+  before_action :set_kitap, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :kontrol, only: [:edit, :update, :destroy]
+  
+  
   
   
   # GET /kitaps

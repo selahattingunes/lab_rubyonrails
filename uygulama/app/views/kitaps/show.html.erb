@@ -24,10 +24,6 @@
                         <td> <%= image_tag @kitap.resim.url(:medium) if @kitap.resim? %></td>
                     </tr>
                     <tr>
-                        <td><%= link_to 'Geri Git', kitaps_path %></td>
-                        <td><%= link_to 'Güncelle', edit_kitap_path(@kitap) %> </td>
-                    </tr>
-                    <tr>
                         <td>Beğeni sayısı : </td>
                         <td><%= link_to " Beğen ", kitap_like_path(@kitap), remote: :true, method: :put %></td>
                     </tr>
@@ -37,6 +33,12 @@
                              <%= @kitap.like.sayi %>
                              </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <% if user_signed_in? %>
+                            <td><%= link_to 'Güncelle', edit_kitap_path(@kitap) , {:class=>"btn btn-primary"} %> </td>
+                        <% end %>
+                        <td><%= link_to 'Geri Git', kitaps_path , {:class=>"btn btn-success"} %></td>
                     </tr>
                 </tbody>
             </table>

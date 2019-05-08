@@ -3,5 +3,4 @@ class Kitap < ApplicationRecord
     validates_attachment_content_type :resim, content_type: /\Aimage\/.*\z/
     belongs_to :user
     has_one :like, :dependent => :destroy
-    belongs_to :kitap
 end
