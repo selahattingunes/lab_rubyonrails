@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+    
+<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+     <h1>Kitaplar</h1>
+     <%= link_to 'Yeni Kitap Ekle', new_kitap_path ,{:class=>"btn btn-primary"} %>
+     </br>
+     </br>
+     <% sayac=0 %>
+     <% hucre_sayisi=2 %>
+     <% @kitaps.each do |kitap| %>
+       
+         <% if(sayac == 0) %>
+             <div class="row">
+         <% end %>
+                 <div class="col">
+                     <div class="card">
+                         <div class="card-body">
+                             <h5 class="card-title"> <%= kitap.isim %> </h5>
+                             <h6 class="card-subtitle mb-2 text-muted">
+                                 <%= kitap.ozet %>
+                             </h6>
+                             <p class="card-text">
+                                 <%= image_tag kitap.resim.url(:thumb) if kitap.resim? %>
+                             </p>
+                             <p>
+                                 <%=kitap.user.email%>
+                             </p>
+                             <%= link_to 'Görüntüle', kitap %>
+                             <%= link_to 'Güncelle', edit_kitap_path(kitap) %>
+                             <%= link_to 'Sil', kitap, method: :delete, data: { confirm: 'Are you sure?' } %>
+                         </div>
+                     </div>
+                 </div>
+         <% if(sayac == (hucre_sayisi-1)) %>
+             </div><br>
+             <% sayac=0 %>
+         <% else %> 
+             <% sayac= sayac + 1 %>
+         <% end %>
+             
+         
+     <% end %>
+       
+       
+ </div>
+ </br>
+ 
+</div>
+
+
+</br>
+</br>
+</br>
+
+

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+             <p>
+                 <strong>İsim : </strong>
+                 <%= @kitap.isim %>
+             </p>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Ozet :</td>
+                        <td><%= @kitap.ozet %></td>
+                    </tr>
+                    <tr>
+                        <td>Sayfa:</td>
+                        <td><%= @kitap.sayfa %></td>
+                    </tr>
+                    <tr>
+                        <td>Resim:</td>
+                        <td> <%= image_tag @kitap.resim.url(:medium) if @kitap.resim? %></td>
+                    </tr>
+                    <tr>
+                        <td><%= link_to 'Geri Git', kitaps_path %></td>
+                        <td><%= link_to 'Güncelle', edit_kitap_path(@kitap) %> </td>
+                    </tr>
+                    <tr>
+                        <td>Beğeni sayısı : </td>
+                        <td><%= link_to " Beğen ", kitap_like_path(@kitap), remote: :true, method: :put %></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="like">
+                             <%= @kitap.like.sayi %>
+                             </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+ </br>
+  </br>
+
+
+
