@@ -1,2 +1,0 @@
-class Yazar < ApplicationRecord
-end
